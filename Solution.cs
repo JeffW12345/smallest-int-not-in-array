@@ -8,37 +8,34 @@ namespace CodilityChallenges
         // Finds the smallest int not to occur in the array
         public static int solution(int[] A)
         {
-            List<int> asList = new List<int>(A);
-            asList.Sort();
+            HashSet<int> asSet = new HashSet<int>(A);
             int minPositiveInList = 0;
-            foreach (int num in asList)
+            foreach (int num in asSet)
             {
                 if (num > 0)
                 {
-                    minPositiveInList = num;
-                    break;
+                    if(num < minPositiveInList && minPositiveInList > 0)
+                    {
+                        minPositiveInList = num;
+                    }
+                    if(minPositiveInList == 0)
+                    {
+                        minPositiveInList = num;
+                    }
                 }
             }
             if (minPositiveInList >= 2 || minPositiveInList <= 0)
             {
                 return 1;
             }
-            if (minPositiveInList == 1)
+            for(int i = 1; i < 1000000; i++)
             {
-                int firstOccurrence = asList.IndexOf(1);
-                for (int i = firstOccurrence + 1; i < asList.Count; i++)
+                if (!asSet.Contains(i))
                 {
-                    if (asList[i] == asList[i - 1] + 1 || asList[i] == asList[i - 1])
-                    {
-                        minPositiveInList++;
-                    }
-                    else
-                    {
-                        return minPositiveInList;
-                    }
+                    return i;
                 }
             }
-            return minPositiveInList + 1;
+            return 1;
         }
 
         public static void Main(string[] args)
