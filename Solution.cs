@@ -6,7 +6,7 @@ namespace CodilityChallenges
     class Solution
     {
         // Finds the smallest int not to occur in the array
-        public static int solution(int[] A)
+        public static int GetSmallestInt(int[] A)
         {
             HashSet<int> asSet = new HashSet<int>(A);
             int minPositiveInList = 0;
@@ -42,7 +42,7 @@ namespace CodilityChallenges
         {
 
             int[] arr = { 1, 3, 4, 3, 2 };
-            Console.WriteLine(solution(arr));
+            Console.WriteLine(GetSmallestInt(arr));
         }
     }
 }
