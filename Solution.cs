@@ -24,7 +24,7 @@ namespace CodilityChallenges
                     }
                 }
             }
-            if (minPositiveInList >= 2 || minPositiveInList <= 0)
+            if (minPositiveInList <= 1)
             {
                 return 1;
             }
